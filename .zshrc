@@ -109,3 +109,7 @@ eval "$(pyenv init -)"
 # opam configuration
 test -r /home/oliver/.opam/opam-init/init.zsh && . /home/oliver/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 alias config='/usr/bin/git --git-dir=/home/oliver/.cfg/ --work-tree=/home/oliver'
+[ -f "/home/oliver/.ghcup/env" ] && source "/home/oliver/.ghcup/env" # ghcup-env
+
+# thefuck installation
+eval $(thefuck --alias)
