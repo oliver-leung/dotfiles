@@ -1,8 +1,11 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# This file is sourced when an interactive shell starts (i.e. a terminal). Put
+# OMZ configs, aliases, and basically anything else here.
+
+# Add zprof profiler
+zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/oliver/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -21,7 +24,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -50,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -68,7 +71,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dirhistory)
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+plugins=(git dirhistory nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,27 +94,21 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# Set personal aliases, overriding those provided by oh-`my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias zshconfig="nano ~/.zshrc && exec zsh"
+alias edit-alia="nano $ZSH_CUSTOM/aliases.zsh && exec zsh"
 
-alias zshconfig="nano ~/.zshrc && source ~/.zshrc"
-
-# Load custom PATH
-source ~/.profile
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Pyenv Installation
+# Pyenv start
 eval "$(pyenv init -)"
 
 # opam configuration
 test -r /home/oliver/.opam/opam-init/init.zsh && . /home/oliver/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-alias config='/usr/bin/git --git-dir=/home/oliver/.cfg/ --work-tree=/home/oliver'
+
+# Haskell compiler
 [ -f "/home/oliver/.ghcup/env" ] && source "/home/oliver/.ghcup/env" # ghcup-env
 
-# thefuck installation
+# thefuck autocomplete
 eval $(thefuck --alias)
