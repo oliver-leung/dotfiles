@@ -153,7 +153,7 @@ set softwrap
 # set speller "aspell -x -c"
 
 ## Allow nano to be suspended.
-set suspend
+# set suspend
 
 ## Use this tab size instead of the default; it must be greater than 0.
 set tabsize 4
@@ -241,7 +241,7 @@ set tabstospaces
 ##   include "/path/to/syntax_file.nanorc"
 
 ## To include all existing syntax definitions, you can do:
-include "/usr/share/nano/*.nanorc"
+include "/usr/local/share/nano/*.nanorc"
 
 
 ## If <Tab> should always produce four spaces when editing a Python file,

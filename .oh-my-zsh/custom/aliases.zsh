@@ -28,9 +28,29 @@ alias pcp="rsync -r --progress"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Better cat
-alias cat="batcat"
+alias cat="bat"
 
 # Better top
 alias top="bpytop"
 alias utop="bpytop"
 alias htop="bpytop"
+
+alias bb="brazil-build"
+
+# Cloud Dev Desktop
+ssh-clouddesk() {
+    # Handles when ssh-ing from both the absolute and the symlink path of workplace
+    NEW_PATH="$(echo $PWD | sed -e 's/Users/home/' -e 's|/Volumes|/home/olileung|')"
+    ssh clouddesk -t "cd $NEW_PATH; zsh"
+}
+grab() {
+    scp clouddesk:$1 .
+}
+
+# Branch trickery for CRUX
+alias br-mainline="git branch --set-upstream-to origin/mainline"
+br-reset() {
+    CUR="$(git branch --show-current)" && {
+        git branch --set-upstream-to origin/$CUR
+    }
+}

@@ -2,12 +2,17 @@
 # -c. As such, only put frequently updated environment variables like PATH here.
 
 
+# Add cargo to path
+# . "$HOME/.cargo/env"
 
-# Adds cargo to path
-. "$HOME/.cargo/env"
+# Add Builder Toolbox
+export PATH="$PATH:$HOME/.toolbox/bin"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# Python libraries
+export PATH="$PATH:$HOME/Library/Python/3.8/bin"
 
+# Speed up interactive shell loading
 skip_global_compinit=1
+
+# Default terminal text editor
+export EDITOR=nano
