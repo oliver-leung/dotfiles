@@ -4,9 +4,10 @@ alias exp="explorer.exe ."
 alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
 
 # Apt-get
-alias sai="sudo apt install"
-alias sar="sudo apt remove"
-alias sup="sudo apt update && sudo apt upgrade -y"
+alias sai="sudo nala install"
+alias sar="sudo nala remove"
+alias sup="sudo nala update && sudo nala upgrade -y"
+alias apt="nala"
 
 # Python
 alias ipynb="jupyter notebook --port=8889 --no-browser"
