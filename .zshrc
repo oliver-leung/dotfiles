@@ -1,9 +1,6 @@
 # This file is sourced when an interactive shell starts (i.e. a terminal). Put
 # OMZ configs, aliases, and basically anything else here.
 
-# Add zprof profiler
-zmodload zsh/zprof
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -109,6 +106,3 @@ test -r /home/oliver/.opam/opam-init/init.zsh && . /home/oliver/.opam/opam-init/
 
 # Haskell compiler
 [ -f "/home/oliver/.ghcup/env" ] && source "/home/oliver/.ghcup/env" # ghcup-env
-
-# thefuck autocomplete
-eval $(thefuck --alias)
