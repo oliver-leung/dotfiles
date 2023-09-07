@@ -12,9 +12,6 @@ alias apt="nala"
 # Python
 alias ipynb="jupyter notebook --port=8889 --no-browser"
 
-# SSH hosts
-alias leungnas="ssh pi@192.168.1.148"
-
 # Git
 alias lg="lazygit"
 alias ga="git add ."

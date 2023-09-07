@@ -100,9 +100,3 @@ alias edit-alia="nano $ZSH_CUSTOM/aliases.zsh && exec zsh"
 
 # Pyenv start
 eval "$(pyenv init -)"
-
-# opam configuration
-test -r /home/oliver/.opam/opam-init/init.zsh && . /home/oliver/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# Haskell compiler
-[ -f "/home/oliver/.ghcup/env" ] && source "/home/oliver/.ghcup/env" # ghcup-env
