@@ -13,3 +13,5 @@
 	skippedCherryPicks = false
 [push]
 	autoSetupRemote = true
+[rebase]
+	autostash = true

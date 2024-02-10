@@ -134,9 +134,9 @@ eval "$(rbenv init - zsh)"
 
 authen () {
     # Automatically kinit when necessary
-    if [[ $(klist -s 2> /dev/null ; echo $?) != 0 ]] ; then
-        kinit -f
-    fi
+    # if [[ $(klist -s 2> /dev/null ; echo $?) != 0 ]] ; then
+    #     kinit -f
+    # fi
 
     # Automatically mwinit when necessary
     expiry=$(ssh-keygen -L -f ~/.ssh/id_rsa-cert.pub | grep "Valid:" | awk '{print $NF}')
@@ -146,7 +146,20 @@ authen () {
 }
 authen
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
+
+export PERSONAL_ENDPOINT="https://58lv0fd2ph.execute-api.us-west-2.amazonaws.com/test/"
+export PATH="/usr/local/sbin:$PATH"
+
+# eda autocompletion
+export EDA_AUTO="$HOME/.config/eda/completion"
+mkdir -p $EDA_AUTO
+eda completions zsh > $EDA_AUTO/_eda
+fpath=($EDA_AUTO $fpath)
+autoload -Uz compinit
+compinit
+
+source "$HOME/.cargo/env"
+eval "$(rtx activate zsh)"
+export LC_ALL=en_US.UTF-8

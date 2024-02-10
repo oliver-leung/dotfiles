@@ -47,6 +47,8 @@ grab() {
     scp clouddesk:$1 .
 }
 
+alias clouddesk-gui="python3 dcv-cdd.py connect dev-dsk-olileung-2c-33e543e6.us-west-2.amazon.com"
+
 # Branch trickery for CRUX
 alias br-mainline="git branch --set-upstream-to origin/mainline"
 br-reset() {
@@ -54,3 +56,6 @@ br-reset() {
         git branch --set-upstream-to origin/$CUR
     }
 }
+
+alias localstack="ada credentials update --account=712818025223 --role=Admin --once"
+alias work="cd /Users/olileung/workplace/AMPLIFY"
